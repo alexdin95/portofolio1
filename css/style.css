@@ -1,0 +1,363 @@
+/*Color Palette
+#343434 - dark gray
+#2F3061 - dark Blue
+#f7fff7 - almost white
+#a1c6d7 - light blue
+#ffe66d - yellow
+-------------------------------------------*/
+
+/*Global Styles
+-------------------------------------------*/
+
+/* it's the most general selector so i'll put it above the img tag*/
+
+/*The box model fix */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/*End of box model fix */
+
+body {
+  color: #343434; /*Will be inherited by all text except links because they have a different default color*/
+  margin: 0;
+  padding: 0;
+  /*Adding the font family*/
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+img {
+  width: 300px;
+}
+
+/*Adding the link styles here because it will apply to all the links*/
+a {
+  color: #ffe66d;
+}
+/*addingthe hover style --> Removing the text underlining */
+a:hover {
+  text-decoration: none;
+}
+h1 {
+  font-size: 100px;
+  line-height: 1;
+}
+h2 {
+  font-size: 45px;
+}
+/*font Style for headers*/
+h1,
+h2 {
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+  margin: 0;
+}
+
+.content-wrap {
+  max-width: 800px;
+  width: 85%;
+  margin: 0 auto;
+  /*Adding this padding pushed the content inwrd, including the margins and covering the empty space up */
+  padding: 60px 0;
+}
+h3 {
+  margin-bottom: 0;
+}
+
+.item-details h3 + p {
+  font-style: italic;
+}
+
+.item-details h3 ~ p {
+  margin: 0;
+}
+
+.divider > section {
+  border-bottom: 1px dashed #343434;
+  padding: 25px 0;
+}
+.divider > section:last-of-type {
+  border-bottom: none;
+}
+
+/*Profile
+-------------------------------------------*/
+header {
+  color: #f7fff7;
+  background: #2f3061;
+  /* text-align: center; I HAVE MOVED THIS WHOLE STYLE TO THE MEDIA QUERRY SO THAT IT TARGETS ONLY LARGE SCREEN SIZES, 
+  You will see it pasted there in combo with footer */
+}
+
+/*Projects
+-------------------------------------------*/
+.education {
+  background-image: url(../images/joanna-kosinska-unsplash.jpg);
+  background-size: cover;
+  background-position: top right;
+  padding-bottom: 80px;
+}
+
+.projects {
+  background-image: url(../images/joanna-kosinska-8gYCAkMuvsY-unsplash.jpg);
+  background-size: cover;
+  background-position: 200px;
+  padding-bottom: 80px;
+}
+.projects a {
+  color: #2f3061;
+}
+
+/*adding a descendent selector to change the link color for every link in project,
+we'll create a different class for all the links that we want to look like buttons
+ we'll also add padding, rounded corners and background color to make those look like a button*/
+.projects .btn {
+  color: #f7fff7;
+  background: #2f3061;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 4px;
+  /*inline elements don't align vertically when adding padding and margin to it*/
+  /*so that it doesn't overlap with the text content i'm gonna make it behave like a block*/
+  display: inline-block;
+}
+.projects .btn:hover {
+  /*rgba() permite modificarea opacitatii*/
+  background: rgba(47, 48, 97, 80%);
+}
+
+.project-item {
+  /*this to do the self clear in the parent item of the image, in order to have stuff flow correctly*/
+  overflow: hidden;
+}
+/*.project-item img { I HAVE MOVED THIS WHOLE STYLE TO THE MEDIA QUERRY SO THAT IT TARGETS ONLY LARGE SCREEN SIZES, You will see it pasted there
+  float: left;
+  margin-right: 20px;
+}*/
+.project-item h3 {
+  margin-top: 0;
+}
+
+/*work Experience
+-------------------------------------------*/
+.work-experience {
+  background: #a1c6d7;
+}
+/* .job-item {  I HAVE MOVED THIS WHOLE STYLE TO THE MEDIA QUERRY SO THAT IT TARGETS ONLY LARGE SCREEN SIZES, You will see it pasted there
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 20px;
+} */
+/*Education
+-------------------------------------------*/
+.education {
+  background-image: url(../images/joanna-kosinska-unsplash.jpg);
+  background-size: cover;
+  background-position: top right;
+  padding-bottom: 80px;
+}
+
+.education p {
+  width: 60%;
+}
+
+/*Contact info
+-------------------------------------------*/
+footer {
+  color: #f7fff7;
+  background: #343434;
+  /* text-align: center;   I HAVE MOVED THIS WHOLE STYLE TO THE MEDIA QUERRY SO THAT IT TARGETS ONLY LARGE SCREEN SIZES, 
+  You will see it pasted there in combination with header*/
+}
+
+/*****************Contact info******************/
+footer {
+  margin: 0;
+  padding: 0;
+  background: #ebebeb;
+}
+footer h2 {
+  margin-bottom: 60px;
+
+  color: #343434;
+}
+
+ul {
+  top: 50%;
+  left: 50%;
+
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+ul li {
+  list-style: none;
+}
+ul li a {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #404040;
+  margin: 0 30px;
+  transition: 0.5s;
+}
+ul li a span {
+  position: absolute;
+  transition: transform 0.5s;
+}
+ul li a span:nth-child(1),
+ul li a span:nth-child(3) {
+  width: 100%;
+  height: 3px;
+  background: #404040;
+}
+ul li a span:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform-origin: right;
+}
+ul li a:hover span:nth-child(1) {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+ul li a span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+ul li a:hover span:nth-child(3) {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+ul li a span:nth-child(2),
+ul li a span:nth-child(4) {
+  width: 3px;
+  height: 100%;
+  background: #404040;
+}
+ul li a span:nth-child(2) {
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transform-origin: bottom;
+}
+ul li a:hover span:nth-child(2) {
+  transform: scale(1);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+ul li a span:nth-child(4) {
+  top: 0;
+  right: 0;
+  transform: scale(0);
+  transform-origin: top;
+}
+ul li a:hover span:nth-child(4) {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+
+.facebook:hover {
+  color: #3b5998;
+}
+.facebook:hover span {
+  background: #3b5998;
+}
+.twitter:hover {
+  color: #1da1f2;
+}
+.twitter:hover span {
+  background: #1da1f2;
+}
+.instagram:hover {
+  color: #c32aa3;
+}
+.instagram:hover span {
+  background: #c32aa3;
+}
+.google:hover {
+  color: #dd4b39;
+}
+.google:hover span {
+  background: #dd4b39;
+}
+ul li a .twitter {
+  color: #1da1f2;
+}
+ul li a:hover:nth-child(3) {
+  color: #c32aa3;
+}
+ul li a:hover:nth-child(4) {
+  color: #dd4b39;
+}
+/***********************************************/
+
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+  /*I HAVE MOVED THE BELOW STYLES STYLE TO THE MEDIA QUERRY SO THAT IT TARGETS ONLY LARGE SCREEN SIZES, You will see it pasted there
+  display: flex; 
+  justify-content: center;*/
+}
+.contact-list a {
+  padding: 15px;
+  display: inline-block;
+}
+
+/*Media Querries - Responsive
+-------------------------------------------*/
+@media screen and (min-width: 750px) {
+  header,
+  footer {
+    text-align: center;
+  }
+  .project-item img {
+    float: left;
+    margin-right: 20px;
+  }
+  .job-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 20px;
+  }
+
+  /*was created with flexbox*/
+  .contact-list {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 749px) {
+  /*Same selector as default but with different values ( font size )*/
+  h1 {
+    font-size: 75px;
+    line-height: 0.95;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    line-height: 1;
+  }
+
+  .contact-list a {
+    /*We adjust padding in max-width querry because we don't want to override for the large screensize, only the small ones*/
+    padding: 5px;
+  }
+}
