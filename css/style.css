@@ -91,9 +91,91 @@ h3 {
 header {
   color: #f7fff7;
   background: #2f3061;
+  padding-top: 20px;
   /* text-align: center; I HAVE MOVED THIS WHOLE STYLE TO THE MEDIA QUERRY SO THAT IT TARGETS ONLY LARGE SCREEN SIZES, 
   You will see it pasted there in combo with footer */
 }
+
+/*************CONTACT BUTTON ************/
+
+header a {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: 10px;
+  margin-left: -100px;
+  padding: 20px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+header a span {
+  position: relative;
+  color: #fff;
+  font-size: 20px;
+  font-family: Arial;
+  letter-spacing: 8px;
+  z-index: 1;
+}
+
+header a .liquid {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: #4973ffc2;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+/* #343434 - dark gray
+#2F3061 - dark Blue
+#f7fff7 - almost white
+#a1c6d7 - light blue */
+
+header a .liquid::after,
+header a .liquid::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #2f3061;
+}
+
+header a .liquid::before {
+  border-radius: 45%;
+  background: #2f306196; /*background button*/
+  animation: animate 5s linear infinite;
+}
+
+header a .liquid::after {
+  border-radius: 40%;
+  background: rgba(20, 20, 20, 0.5);
+  animation: animate 10s linear infinite;
+}
+
+header a:hover .liquid {
+  top: -120px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+/***************************************/
 
 /*Projects
 -------------------------------------------*/
@@ -188,7 +270,7 @@ footer h2 {
   color: #343434;
 }
 
-ul {
+footer ul {
   top: 50%;
   left: 50%;
 
@@ -210,7 +292,7 @@ ul li a {
   text-align: center;
   text-decoration: none;
   color: #404040;
-  margin: 0 30px;
+  margin: 0 10px;
   transition: 0.5s;
 }
 ul li a span {
